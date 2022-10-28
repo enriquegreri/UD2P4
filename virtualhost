@@ -1,0 +1,7 @@
+<VirtualHost *:80> 
+<Proxy balancer://mycluster> 
+ 	BalancerMember http://IP-HTTP-SERVER-1 
+ 	BalancerMember http://IP-HTTP-SERVER-2 
+    </Proxy> 
+    ProxyPass / balancer://mycluster/ 
+</VirtualHost> 
