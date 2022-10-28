@@ -1,2 +1,2 @@
-CREATE USER 'bankoint'@'%' IDENTIFIED BY '';
-GRANT SELECT, INSERT, UPDATE, DELETE ON bankoint.* TO 'bankoint'@'%'
+CREATE USER 'blogelin'@'%' IDENTIFIED BY '';
+GRANT SELECT, INSERT, UPDATE, DELETE ON blogelin.* TO 'blogelin'@'%'

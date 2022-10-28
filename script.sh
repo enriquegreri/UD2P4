@@ -26,7 +26,7 @@ elif [[ $installation = "webserver" ]]; then
     mkdir TEMP
     cd TEMP
     git clone https://github.com/framafra/UD02P04.git
-    sed -i "s|root|bankoint|g" UD02P04/admin/core/controller/Database.php
+    sed -i "s|root|blogelin|g" UD02P04/admin/core/controller/Database.php
     read -p "Cuál es la IP del servidor MYSQL" mysql-server
     sed -i "s|localhost|$mysql-server|g" UD02P04/admin/core/controller/Database.php
     cp -r UD02P04/* /var/www/html/
