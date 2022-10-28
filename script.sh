@@ -19,7 +19,7 @@ if [[ $installation = "proxy" ]]; then
     read -p "Dominio o IP del servidor 1" server1
     read -p "Dominio o IP del servidor 2" server2
     sed -i "s|IP-HTTP-SERVER-1|$server1|g" virtualhost
-    sed -i "s|IP-HTTP-SERVER-1|$server2|g" virtualhost
+    sed -i "s|IP-HTTP-SERVER-2|$server2|g" virtualhost
     cp virtualhost /etc/apache2/sites-available/000-default.conf
 elif [[ $installation = "webserver" ]]; then
     apt install apache2 libapache2-mod-php php-mysql -y
