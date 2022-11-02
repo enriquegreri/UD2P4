@@ -101,7 +101,7 @@ elif [[ $installation = "mysql" ]]; then
     git clone https://github.com/framafra/UD02P04.git
     mysql < UD02P04/schema.sql
     mysql < ../user.sql
-    cp mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+    cp ../mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
     systemctl restart mysql
     clear
     echo "--------------------------------------------"
