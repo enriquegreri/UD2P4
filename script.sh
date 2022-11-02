@@ -100,7 +100,7 @@ elif [[ $installation = "mysql" ]]; then
     cd TEMP
     git clone https://github.com/framafra/UD02P04.git
     mysql < UD02P04/schema.sql
-    mysql < user.sql
+    mysql < ../user.sql
     cp mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
     systemctl restart mysql
     clear
@@ -109,6 +109,7 @@ elif [[ $installation = "mysql" ]]; then
     echo "------Borrando archivos temporales----------"
     echo "--------------------------------------------"
     echo "--------------------------------------------"
+    cd ..
     rm -r TEMP
 elif [[ $installation = "phpmyadmin" ]]; then
     echo "--------------------------------------------"
