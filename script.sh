@@ -61,7 +61,6 @@ elif [[ $installation = "webserver" ]]; then
     echo "--------------------------------------------"
     echo "--------------------------------------------"
     apt install apache2 libapache2-mod-php php-mysql -y
-    clear
     echo "--------------------------------------------"
     echo "--------------------------------------------"
     echo "-----------Configurando Apache--------------"
@@ -76,7 +75,6 @@ elif [[ $installation = "webserver" ]]; then
     cp -r UD02P04/* /var/www/html/
     mv /var/www/html/index.html /var/www/html/index.html.bak
     cd ..
-    clear
     echo "--------------------------------------------"
     echo "--------------------------------------------"
     echo "------Borrando archivos temporales----------"
