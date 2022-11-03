@@ -33,8 +33,8 @@ if [[ $installation = "proxy" ]]; then
     a2enmod proxy_html 
     a2enmod lbmethod_byrequests
     clear
-    read -p "Dominio o IP del servidor 1" server1
-    read -p "Dominio o IP del servidor 2" server2
+    read -p "Dominio o IP del servidor 1: " server1
+    read -p "Dominio o IP del servidor 2: " server2
     echo "--------------------------------------------"
     echo "--------------------------------------------"
     echo "---Configurando archivos de configuración---"
@@ -46,6 +46,7 @@ if [[ $installation = "proxy" ]]; then
     sed -i "s|IP-HTTP-SERVER-1|$server1|g" virtualhost
     sed -i "s|IP-HTTP-SERVER-2|$server2|g" virtualhost
     cp virtualhost /etc/apache2/sites-available/000-default.conf
+    systemctl restart apache2
     clear
     echo "--------------------------------------------"
     echo "--------------------------------------------"
@@ -117,7 +118,16 @@ elif [[ $installation = "phpmyadmin" ]]; then
     echo "----------Instalando PHPMyAdmin-------------"
     echo "--------------------------------------------"
     echo "--------------------------------------------"
-    apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y
+    apt install apache2 libapache2-mod-php php-mysql phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y
+    clear
+    echo "--------------------------------------------"
+    echo "--------------------------------------------"
+    echo "---------Configurando PHPMYADMIN------------"
+    echo "--------------------------------------------"
+    echo "--------------------------------------------"
+    read -p "¿Cuál es la IP del servidor MYSQL? " mysql_server
+    sed -i "s|localhost|$mysql_server|g" /etc/phpmyadmin/config-db.php
+    cp config.inc.php /etc/phpmyadmin/config.inc.php
 elif [[ $installation = "notinstall" ]]; then
     exit
 fi
